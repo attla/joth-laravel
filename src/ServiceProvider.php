@@ -1,6 +1,6 @@
 <?php
 
-namespace Attla\Env;
+namespace Octha\Joth;
 
 use Illuminate\Contracts\Http\Kernel;
 use Octha\Joth\Middlewares\ModifyRequest;
