@@ -2,7 +2,7 @@
 
 return [
     // This value is used to encrypt and decrypt the data
-    'secret' => env('JOTH_SECRET', ''),
+    'secret' => is_file(app()->basePath('attla')) ? '' : env('JOTH_SECRET', ''),
 
     // This are the attributes that will be encrypted or decrypted
     'attributes' => [
