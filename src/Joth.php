@@ -29,13 +29,13 @@ class Joth
     {
         [$passphrase, $iv] = static::generateKey($secret);
 
-        return base64_encode(json_encode(base64_encode((string) openssl_encrypt(
-            (string) $value,
+        return base64_encode((string) openssl_encrypt(
+            base64_encode(json_encode($value)),
             'aes-256-cbc',
             $passphrase,
             true,
             $iv
-        ))));
+        ));
     }
 
     /**
@@ -49,13 +49,13 @@ class Joth
     {
         [$passphrase, $iv] = static::generateKey($secret);
 
-        return openssl_decrypt(
-            base64_decode(json_decode(base64_decode($str), true)),
+        return json_decode(base64_decode(openssl_decrypt(
+            base64_decode($str),
             'aes-256-cbc',
             $passphrase,
             true,
             $iv
-        );
+        )), true);
     }
 
     /**
