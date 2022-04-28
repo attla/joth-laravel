@@ -69,7 +69,8 @@ class ModifyRequest
         $secret = config('joth.secret');
 
         foreach ($this->attrs as $attr) {
-            if ($value = Arr::get($data, $attr)) {
+            $value = Arr::get($data, $attr, '__undefined__');
+            if ($value != '__undefined__') {
                 Arr::set($data, $attr, Joth::decode($value, $secret));
             }
         }

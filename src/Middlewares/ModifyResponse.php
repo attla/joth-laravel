@@ -27,7 +27,8 @@ class ModifyResponse
             $data = $response->getData(true);
 
             foreach ($params as $attr) {
-                if ($value = Arr::get($data, $attr)) {
+                $value = Arr::get($data, $attr, '__undefined__');
+                if ($value != '__undefined__') {
                     Arr::set($data, $attr, Joth::encode($value, $secret));
                 }
             }
