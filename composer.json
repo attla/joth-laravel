@@ -1,5 +1,5 @@
 {
-    "name": "octha/joth-laravel",
+    "name": "attla/joth-laravel",
     "description": "Encrypt and decrypt requests and responses data on laravel.",
     "keywords": [
         "attla",
@@ -15,23 +15,27 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Lucas Nicolau",
-            "email": "lucas@octha.com"
+            "name": "Nicolau",
+            "email": "nicolau@zunq.com"
         }
     ],
-    "homepage": "https://github.com/octhahq/joth-laravel",
+    "homepage": "https://github.com/attla/joth-laravel",
     "require": {
-        "php": ">=5.6"
+        "php": ">=7.2.5",
+        "attla/support": "dev-main",
+        "illuminate/contracts": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+        "illuminate/http": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+        "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0"
     },
     "autoload": {
         "psr-4": {
-            "Octha\\Joth\\": "src/"
+            "Attla\\Joth\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Octha\\Joth\\ServiceProvider"
+                "Attla\\Joth\\ServiceProvider"
             ]
         }
     },

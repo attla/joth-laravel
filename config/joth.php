@@ -1,8 +1,10 @@
 <?php
 
+use Attla\Support\Envir;
+
 return [
     // This value is used to encrypt and decrypt the data
-    'secret' => is_file(app()->basePath('attla')) ? '' : env('JOTH_SECRET', ''),
+    'secret' => Envir::get('JOTH_SECRET', ''),
 
     // This are the attributes that will be encrypted or decrypted
     'attributes' => [

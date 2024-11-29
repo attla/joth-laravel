@@ -1,7 +1,8 @@
 <?php
 
-namespace Octha\Joth;
+namespace Attla\Joth;
 
+use Attla\Support\Envir;
 use Illuminate\Http\Request;
 
 class Joth
@@ -66,9 +67,7 @@ class Joth
      */
     public static function getAttrs(Request $request)
     {
-        $config = config();
-
-        foreach ($config->get('joth.attributes.routes', []) as $path => $attrs) {
+        foreach (Envir::getConfig('joth.attributes.routes', []) as $path => $attrs) {
             if (
                 $request->fullUrlIs($path)
                 || $request->is($path)
@@ -78,6 +77,6 @@ class Joth
             }
         }
 
-        return $config->get('joth.attributes.globals', []);
+        return Envir::getConfig('joth.attributes.globals', []);
     }
 }

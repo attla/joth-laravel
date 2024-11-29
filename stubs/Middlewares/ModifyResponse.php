@@ -2,7 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Octha\Joth\Joth;
+use Attla\Joth\Joth;
+use Attla\Support\Envir;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class ModifyResponse
     public function handle(Request $request, \Closure $next, ...$attrs)
     {
         $response = $next($request);
-        $secret = config('joth.secret');
+        $secret = Envir::getConfig('joth.secret');
 
         if ($secret && $response instanceof \Illuminate\Http\JsonResponse) {
             $params = array_merge(Joth::getAttrs($request), empty($attrs) ? [] : $attrs);

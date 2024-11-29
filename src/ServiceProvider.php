@@ -1,10 +1,10 @@
 <?php
 
-namespace Octha\Joth;
+namespace Attla\Joth;
 
 use Illuminate\Contracts\Http\Kernel;
-use Octha\Joth\Middlewares\ModifyRequest;
-use Octha\Joth\Middlewares\ModifyResponse;
+use Attla\Joth\Middlewares\ModifyRequest;
+use Attla\Joth\Middlewares\ModifyResponse;
 use App\Http\Middleware\ModifyRequest as AppModifyRequest;
 use App\Http\Middleware\ModifyResponse as AppModifyResponse;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -32,11 +32,11 @@ class ServiceProvider extends BaseServiceProvider
 
         $this->publishes([
             __DIR__ . '/../stubs/Middlewares' => $this->app->path('Http/Middleware'),
-        ], 'octha/joth-laravel/middlewares');
+        ], 'attla/joth-laravel/middlewares');
 
         $this->publishes([
             $this->configPath() => config_path('joth.php'),
-        ], 'octha/joth-laravel/config');
+        ], 'attla/joth-laravel/config');
     }
 
     /**

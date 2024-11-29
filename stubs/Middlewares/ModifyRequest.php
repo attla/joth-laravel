@@ -2,7 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Octha\Joth\Joth;
+use Attla\Joth\Joth;
+use Attla\Support\Envir;
 use Illuminate\Support\Arr;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
@@ -66,7 +67,7 @@ class ModifyRequest
      */
     protected function transform(array $data)
     {
-        $secret = config('joth.secret');
+        $secret = Envir::getConfig('joth.secret');
 
         foreach ($this->attrs as $attr) {
             if ($value = Arr::get($data, $attr)) {

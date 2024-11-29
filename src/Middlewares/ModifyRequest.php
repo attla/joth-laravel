@@ -1,8 +1,9 @@
 <?php
 
-namespace Octha\Joth\Middlewares;
+namespace Attla\Joth\Middlewares;
 
-use Octha\Joth\Joth;
+use Attla\Joth\Joth;
+use Attla\Support\Envir;
 use Illuminate\Support\Arr;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
@@ -66,7 +67,7 @@ class ModifyRequest
      */
     protected function transform(array $data)
     {
-        $secret = config('joth.secret');
+        $secret = Envir::getConfig('joth.secret');
 
         foreach ($this->attrs as $attr) {
             $value = Arr::get($data, $attr, '__undefined__');
